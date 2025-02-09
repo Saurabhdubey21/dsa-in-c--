@@ -21,3 +21,14 @@ int main(){
     cin>>x>>y;
     cout<<x+y;
 }
+//long double- long double precision floating point data type
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long double x;
+    long double y;
+    //long double is used to declare a variable of long double precision floating point type
+    cout<<"Enter two numbers:";
+    cin>>x>>y;
+    cout<<x+y;
+}
