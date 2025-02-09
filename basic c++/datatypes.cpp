@@ -20,6 +20,7 @@ using namespace std;
 int main(){
     int x;
     int y;
+    cout<<"Enter two numbers:";
     cin>>x>>y;
     // >> is used to take input from the user
     // cin is used to take input from the user
