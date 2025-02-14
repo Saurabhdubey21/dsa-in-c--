@@ -1,7 +1,7 @@
 // pass by value
 #include<bits/stdc++.h>
 using namespace std;
-void doSomething(string &s){
+void doSoething(string &s){
     s[0]='G';
     s[5]='v';
     s[6]=' ';
@@ -9,7 +9,7 @@ void doSomething(string &s){
 }
 int main(){
     string s ="Saurabh";
-    doSomething(s);
+    doSoething(s);
     cout<<s<<endl;
     return 0;
 }
