@@ -1,4 +1,4 @@
-// print any pattern with same no of rows and columns
+//print any pattern with same no of rows and columns
 #include <bits/stdc++.h>
 using namespace std;
 void print1(int n){
