@@ -14,7 +14,8 @@ int main(){
     int maxProfit =0;
     for(int i=0; i<n;i++){
         int cost =arr[i]-mini;
-        maxProfit=max(mini,arr[i]);
+        maxProfit=max(maxProfit,cost);
+        mini=min(mini,arr[i]);
     }
     cout<<"Maximum return of day: "<<maxProfit;
 }
