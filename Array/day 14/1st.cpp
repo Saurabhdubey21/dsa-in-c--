@@ -1,14 +1,15 @@
 //set matrix zero
 //Given an m x n integer matrix matrix
 //if an element is 0, set its entire row and column to 0's.
+//brute force solution
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
     int n,m;
-    cout<<"Enter the row and column of array: ";
+    cout<<"Enter the row and column of 2d array: ";
     cin>>n>>m;
     vector<vector<int>>arr(n, vector<int>(m));
-    cout<<"Enter the elements of array: ";
+    cout<<"Enter the elements of 2d array: ";
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             cin>>arr[i][j];
