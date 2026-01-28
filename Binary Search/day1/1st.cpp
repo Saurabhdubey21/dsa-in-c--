@@ -2,7 +2,7 @@
 //iterative method;
 #include<bits/stdc++.h>
 using namespace std;
-int linearSearch(vector<int>& arr,int target,int n){
+int binarySearch(vector<int>& arr,int target,int n){
     int low=0;
     int high=n-1;
     while(low<=high){
@@ -26,8 +26,7 @@ int main(){
     int target;
     cout<<"Enter the value of target: ";
     cin>>target;
-    int result = linearSearch(arr, target, n);
-
+    int result = binarySearch(arr, target, n);
     if (result !=-1)
         cout<<"Element found at index " << result;
     else
