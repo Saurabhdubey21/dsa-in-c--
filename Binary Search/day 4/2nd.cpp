@@ -24,6 +24,7 @@ int findsorted(vector<int>&arr,int x){
             else high=mid-1;
         }
     }
+    return -1;
 }
 int main(){
     int n;
