@@ -7,10 +7,10 @@
 //optimal
 #include<bits/stdc++.h>
 using namespace std;
-int times(vector<int>&arr,int n,int speed){
+int times(vector<int>&arr,int n,int mid){
     int hours=0;
     for(int i=0;i<n;i++){
-        hours+=(arr[i]+speed-1)/speed;
+        hours+=(arr[i]+mid-1)/mid;
     }
     return hours;
 }
