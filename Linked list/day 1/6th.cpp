@@ -1,9 +1,9 @@
-//Length of linked list
+//Check elements in linked list
 #include<bits/stdc++.h>
 using namespace std;
 struct node{
     int data;
-    node* next;
+    node*next;
     node(int data1,node*next1){
         data=data1;
         next=next1;
@@ -19,18 +19,20 @@ node* convertarr2ll(vector<int>&arr){
     }
     return head;
 }
-int lengthofll(node*head){
-    int cnt=0;
+int checkifpresent(node*head,int x){
     node*temp=head;
     while(temp){
-        //cout<<temp->data<<" ";
-        temp=temp->next;
-        cnt++;
+        if(temp->data==x){
+            return 1;
+        }
     }
-    return cnt;
+    return 0;
 }
 int main(){
-    vector<int>arr={2,3,4,5,65,7,8};
-    node* head=convertarr2ll(arr);
-    cout<<lengthofll(head);
+    vector<int>arr={2,4,5,7,3,6,8,9};
+    int x;
+    cout<<"Enter the value of x: ";
+    cin>>x;
+    node*head=convertarr2ll(arr);
+    cout<<checkifpresent(head,x);
 }
