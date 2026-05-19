@@ -1,4 +1,5 @@
 //142. Linked List Cycle II
+//find staring point of circular linkedlist
 //Input: head = [3,2,0,-4], pos = 1
 //Input: head = [1,2], pos = 0 Output: tail connects to node index 0
 //brute force
