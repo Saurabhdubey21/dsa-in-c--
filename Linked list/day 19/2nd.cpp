@@ -2,7 +2,7 @@
 //find starting point of circula rlinked list
 //Input: head = [3,2,0,-4], pos = 1
 //Input: head = [1,2], pos = 0 Output: tail connects to node index 0
-//brute force
+//Optimal solution
 #include<bits/stdc++.h>
 using namespace std;
 struct Node{
