@@ -1,6 +1,6 @@
-//Delete all occurrences of a key in DLL
-//Input: head -> 1 <-> 2 <-> 3 <-> 1 <-> 4, target = 1 Output: head -> 2 <-> 3 <-> 4
-//optimal solution 
+//Find Pairs with Given Sum in Doubly Linked List
+//Input: head = [1, 2, 4, 5, 6, 8, 9], target = 7 Output: [[1, 6], [2, 5]]
+//brute force
 #include<bits/stdc++.h>
 using namespace std;
 struct Node{
@@ -28,25 +28,20 @@ Node*convertarr2ll(vector<int>&arr){
     }
     return head;
 }
-Node*deletekeynode(Node*head,int x){
-    Node*temp=head;
-    while(temp!=nullptr){
-        if(temp->data==x){
-            if(temp==head){
-                head=head->next;
-                head->prev=nullptr;
+vector<pair<int,int>>pairswithsum(Node*head,int sum){
+    Node*temp1=head;
+    vector<pair<int,int>>res;
+    while(temp1!=nullptr){
+        Node*temp2=temp1->next;
+        while(temp2!=nullptr&&temp1->data+temp2->data<=sum){
+            if(temp1->data+temp2->data==sum){
+                res.push_back({temp1->data,temp2->data});
             }
-            Node*nextnode=temp->next;
-            Node*prevnode=temp->prev;    
-            if(nextnode!=nullptr)nextnode->prev=prevnode;
-            if(prevnode!=nullptr)prevnode->next=nextnode;
-            delete(temp);
-            temp=nextnode;
-        }else{
-            temp=temp->next;
+            temp2=temp2->next;
         }
+        temp1=temp1->next;
     }
-    return head;
+    return res;
 }
 void print(Node*head){
     while(head!=nullptr){
@@ -59,17 +54,19 @@ int main(){
     cout<<"Enter the size of array: ";
     cin>>n;
     vector<int>arr(n);
-    cout<<"Enter the size of array: ";
+    cout<<"Enter the elements of array: ";
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
+    int sum;
+    cout<<"Enter the value of sum: ";
+    cin>>sum;
     Node*head=convertarr2ll(arr);
-    cout<<"Linkedlistare: ";
+    cout<<"Linked list are: ";
     print(head);
-    int x;
-    cout<<"\nEnter the value of x: ";
-    cin>>x;
-    Node*ans=deletekeynode(head,x);
-    cout<<"\nNew linkedlist is: ";
-    print(ans);
+    vector<pair<int,int>>ans=pairswithsum(head,sum);
+    cout<<"Pairs are: ";
+    for(int x=0;x<ans.size();x++){
+        cout<<ans[x].first<<","<<ans[x].second<<endl;
+    }
 }
