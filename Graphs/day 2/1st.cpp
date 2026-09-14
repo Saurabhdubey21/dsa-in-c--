@@ -13,7 +13,7 @@ int main(){
     int n;
     cout<<"Enter the no of nodes: ";
     cin>>n;
-    vecto<vector<int>>arr(n);
+    vector<vector<int>>arr(n);
     cout<<"List of undirected nodes: ";
     for(int i=0;i<n;i++){
         int u,v;
