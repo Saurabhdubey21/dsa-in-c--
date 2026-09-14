@@ -17,7 +17,7 @@ int main(){
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
-    cout<<"\n adjacent matrix: "<<endl;
+    cout<<"\n adjacency matrix: "<<endl;
     for(int i=1;i<=n;i++){
         cout<<i<<"->";
         for(int j=0;j<adj[i].size();j++){
