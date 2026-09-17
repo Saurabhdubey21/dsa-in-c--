@@ -17,7 +17,7 @@ vector<vector<int>>levelorder(Node* root){
     if(root==nullptr)return res;
     queue<Node*>q;
     q.push(root);
-    while(q.empty()!=nullptr){
+    while(!q.empty()){
         int size=q.size();
         vector<int>level;
         for(int i=0;i<size;i++){
@@ -29,7 +29,7 @@ vector<vector<int>>levelorder(Node* root){
         }
         res.push_back(level);
     }
-    return ans;
+    return res;
 }
 int main(){
     struct Node*root=new Node(1);
