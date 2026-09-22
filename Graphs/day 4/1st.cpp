@@ -4,8 +4,9 @@ using namespace std;
 void dfs(int node,vector<vector<int>>&adj,vector<int>&vis,vector<int>&list){
     vis[node]=1;
     list.push_back(node);
-    for(auto it:adj[node]){
-        if(!vis[it]){
+    for(int i=0;i<adj[node].size();i++){
+        int it=adj[node][i];
+        if(vis[it]==0){
             dfs(it,adj,vis,list);
         }
     }
@@ -36,7 +37,7 @@ int main(){
     for(int i=0;i<n;i++){
         cout<<i<<"->";
         for(int j=0;j<adj[i].size();j++){
-            cout<<adj[i][j];
+            cout<<adj[i][j]<<" ";
         }
         cout<<endl;
     }
