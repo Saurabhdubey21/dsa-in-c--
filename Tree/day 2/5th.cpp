@@ -1,5 +1,5 @@
 //Iterative Postorder
-//Using two stack
+//Using one stack
 #include<bits/stdc++.h>
 using namespace std;
 struct Node{
@@ -13,32 +13,37 @@ struct Node{
 };
 vector<int>iterativepostorder(Node*root){
     vector<int>postorder;
-    stack<Node*>st1;
-    stack<Node*>st2;
-    st1.push(root);
-    while(!st1.empty()){
-        root=st1.top();
-        st1.pop();
-        st2.push(root);
-        if(root->left!=nullptr){
-            st1.push(root->left);
-        }
-        if(root->right!=nullptr){
-            st1.push(root->right);
-        }
+    if(root==nullptr){
+        return postorder;
     }
-    while(!st2.empty()){
-        postorder.push_back(st2.top()->data);
-        st2.pop();
+    stack<Node*>st;
+    Node*curr=root;
+    while(curr!=nullptr||!st.empty()){
+        if(curr!=nullptr){
+            st.push(curr);
+            curr=curr->left;
+        }else{
+            Node*temp=st.top()->right;
+            if(temp==nullptr){
+                temp=st.top();
+                st.pop();
+                postorder.push_back(temp->data);
+                while(!st.empty()&&temp==st.top()->right){
+                    temp=st.top();
+                    st.pop();
+                    postorder.push_back(temp->data);
+                }
+            }else{
+                curr=temp;
+            }
+        }
     }
     return postorder;
 }
 Node*inputtree(){
     int x;
     cin>>x;
-    if(x==-1){
-        return nullptr;
-    }
+    if(x==-1)return nullptr;
     Node*root=new Node(x);
     queue<Node*>q;
     q.push(root);
@@ -61,8 +66,8 @@ Node*inputtree(){
 int main(){
     Node*root=inputtree();
     vector<int>ans=iterativepostorder(root);
-    for(auto it:ans){
-        cout<<it<<" ";
+    cout<<"Postorder transversal: "<<endl;
+    for(int x:ans){
+        cout<<x<<" "<<endl;
     }
-    cout<<endl;
 }
